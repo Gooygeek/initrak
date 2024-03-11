@@ -4,11 +4,11 @@
 </script>
 
 <main>
-  <div>
+  <!-- <div>
     <a href="https://kgol.xyz" target="_blank" rel="noreferrer">
       <img src={Logo} class="logo" alt="INITRAK Logo" />
     </a>
-  </div>
+  </div> -->
   <h1>INITRAK</h1>
 
   <div class="card">

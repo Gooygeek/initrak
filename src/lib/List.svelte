@@ -105,6 +105,7 @@
     on:keydown={(event) => event.key === "Enter" && add(event.target)}
   />
 
+
   <button on:click={add}> Add </button>
   <button on:click={next} style={current === null ? "" : "visibility: hidden;"}>
     START
@@ -118,9 +119,8 @@
   <button on:click={next} style={current === null ? "visibility: hidden;" : ""}>
     Next
   </button>
-
+  <hr>
   <div class="order-list">
-    <h2>Initiative</h2>
     {#each chars as char, i (char.name)}
       <label
         in:receive={{ key: char.name }}
@@ -159,7 +159,7 @@
   .order-list {
     float: left;
     width: 100%;
-    padding: 0 1em 0 0;
+    padding: 1em 0 0 0;
     box-sizing: border-box;
   }
 
