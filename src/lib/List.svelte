@@ -58,7 +58,7 @@
 
   function remove(char) {
     if (current === char.name) {
-      next()
+      next();
     }
     chars = chars.filter((c) => c !== char);
   }
@@ -78,6 +78,10 @@
     let currIndex = chars.findIndex((x) => x.name === current);
     current = chars[(currIndex + 1) % chars.length].name;
   }
+
+  function generate_roll() {
+    inputRoll = Math.floor(Math.random() * 20);
+  }
 </script>
 
 <div class="board">
@@ -93,6 +97,7 @@
     bind:value={inputRoll}
     on:keydown={(event) => event.key === "Enter" && add(event.target)}
   />
+  <button on:click={generate_roll}> Generate </button>
   <input
     class="new-char-input new-char-ac"
     placeholder="AC"
