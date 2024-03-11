@@ -16,18 +16,35 @@ SHELL := bash
 MAKEFLAGS += --warn-undefined-variables
 MAKEFLAGS += --no-builtin-rules
 
+.DEFAULT_GOAL := default
+
+DOCKER_RUN = docker run --rm -it -v "$$(pwd)":/app -w /app -p 5000:5173 node:20
+
 .PHONY: pre-commit
 pre-commit:
 	pre-commit install
 
 .PHONY: install
 install:
+	$(DOCKER_RUN) make _install
+
+.PHONY: _install
+_install:
 	npm install
 
 .PHONY: dev
 dev:
-	npm run dev
+	$(DOCKER_RUN) make _dev
+
+.PHONY: _dev
+_dev:
+	npm run dev -- --host
 
 .PHONY: build
 build:
 	npm run build
+
+
+
+.PHONY: default
+default: install dev
