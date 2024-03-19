@@ -18,7 +18,7 @@ MAKEFLAGS += --no-builtin-rules
 
 .DEFAULT_GOAL := default
 
-DOCKER_RUN = docker run --rm -it -v "$$(pwd)":/app -w /app -p 5000:5173 node:20
+DOCKER_RUN = docker run --rm -it -v "$$(pwd)":/app -w /app -p 5000:5000 node:20
 
 .PHONY: pre-commit
 pre-commit:
@@ -38,7 +38,7 @@ dev:
 
 .PHONY: _dev
 _dev: _install
-	npm run dev -- --host
+	npm run dev -- --host --port 5000
 
 .PHONY: build
 build:
