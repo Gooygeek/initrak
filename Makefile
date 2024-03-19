@@ -37,7 +37,7 @@ dev:
 	$(DOCKER_RUN) make _dev
 
 .PHONY: _dev
-_dev:
+_dev: _install
 	npm run dev -- --host
 
 .PHONY: build
