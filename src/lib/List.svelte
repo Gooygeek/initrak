@@ -35,7 +35,11 @@
   function add(input) {
     const char = {
       name: inputName,
-      initiative: inputRoll,
+      // For some reason JS recasts inputRoll as a string when bound to a text field input
+      // This breaks the numeric sorting and makes it alpha sorting
+      // But the linter does not know this is happening and thus complains about the use of this function >:(
+      // @ts-ignore
+      initiative: parseInt(inputRoll),
       ac: inputAC,
     };
 
@@ -105,7 +109,6 @@
     on:keydown={(event) => event.key === "Enter" && add(event.target)}
   />
 
-
   <button on:click={add}> Add </button>
   <button on:click={next} style={current === null ? "" : "visibility: hidden;"}>
     START
@@ -119,7 +122,7 @@
   <button on:click={next} style={current === null ? "visibility: hidden;" : ""}>
     Next
   </button>
-  <hr>
+  <hr />
   <div class="order-list">
     {#each chars as char, i (char.name)}
       <label
