@@ -101,6 +101,48 @@
     sort_chars();
   }
 
+function LOAD_wolves_of_welton_1() {
+  chars = [
+    { name: "Alex", initiative: 100, modifier: 0, ac: null },
+    { name: "Aaron", initiative: 100, modifier: 0, ac: null },
+    { name: "Sam", initiative: 100, modifier: 0, ac: null },
+    { name: "Wolf 1", initiative: 0, modifier: 2, ac: 13 },
+    { name: "Wolf 2", initiative: 0, modifier: 2, ac: 13 },
+    { name: "Wolf 3", initiative: 0, modifier: 2, ac: 13 },
+    { name: "Wolf 4", initiative: 0, modifier: 2, ac: 13 },
+    { name: "Wolf 5", initiative: 0, modifier: 2, ac: 13 },
+    { name: "Wolf 6", initiative: 0, modifier: 2, ac: 13 },
+    { name: "Wolf 7", initiative: 0, modifier: 2, ac: 13 },
+    { name: "Wolf 8", initiative: 0, modifier: 2, ac: 13 },
+    { name: "Sheep 1", initiative: 0, modifier: 0, ac: 10 },
+    { name: "Sheep 2", initiative: 0, modifier: 0, ac: 10 },
+    { name: "Sheep 3", initiative: 0, modifier: 0, ac: 10 },
+    { name: "Sheep 4", initiative: 0, modifier: 0, ac: 10 },
+    { name: "Sheep 5", initiative: 0, modifier: 0, ac: 10 },
+    { name: "Sheep 6", initiative: 0, modifier: 0, ac: 10 },
+    { name: "Sheep 7", initiative: 0, modifier: 0, ac: 10 },
+    { name: "Sheep 8", initiative: 0, modifier: 0, ac: 10 },
+    { name: "Shepard 1", initiative: 0, modifier: 0, ac: 10 },
+    { name: "Shepard 2", initiative: 0, modifier: 0, ac: 10 },
+  ];
+}
+
+  function LOAD_wolves_of_welton_2() {
+    chars = [
+      { name: "Alex", initiative: 100, modifier: 0, ac: null },
+      { name: "Aaron", initiative: 100, modifier: 0, ac: null },
+      { name: "Sam", initiative: 100, modifier: 0, ac: null },
+      { name: "Wolf 1", initiative: 0, modifier: 2, ac: 13 },
+      { name: "Wolf 2", initiative: 0, modifier: 2, ac: 13 },
+      { name: "Wolf 3", initiative: 0, modifier: 2, ac: 13 },
+      { name: "Wolf 4", initiative: 0, modifier: 2, ac: 13 },
+      { name: "Wolf 5", initiative: 0, modifier: 2, ac: 13 },
+      { name: "Wolf 6", initiative: 0, modifier: 2, ac: 13 },
+      { name: "Wolf 7 - Pup Guard", initiative: 0, modifier: 2, ac: 13 },
+      { name: "Wolf 8 - Pup Guard", initiative: 0, modifier: 2, ac: 13 },
+      { name: "Blaze", initiative: 0, modifier: 2, ac: 14 },
+      { name: "Bolt", initiative: 0, modifier: 2, ac: 14 },
+    ];
   }
 </script>
 
@@ -169,6 +211,10 @@
   </div>
 
   <button on:click={reroll_all}> RE-ROLL ALL </button>
+  <hr />
+  <h2>Load Prerolled Encounter</h2>
+  <button on:click={LOAD_wolves_of_welton_1}> Wolves of Welton 1 </button>
+  <button on:click={LOAD_wolves_of_welton_2}> Wolves of Welton 2 </button>
 </div>
 
 <style>
