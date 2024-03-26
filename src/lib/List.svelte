@@ -94,6 +94,13 @@
     inputRoll = Math.floor(Math.random() * 20) + parseInt(modifier);
   }
 
+  function reroll_all() {
+    for (let i = 0; i < chars.length; i++) {
+      chars[i].initiative = Math.floor(Math.random() * 20) + chars[i].modifier;
+    }
+    sort_chars();
+  }
+
   }
 </script>
 
@@ -160,6 +167,8 @@
       </label>
     {/each}
   </div>
+
+  <button on:click={reroll_all}> RE-ROLL ALL </button>
 </div>
 
 <style>
