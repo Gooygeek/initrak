@@ -21,16 +21,23 @@
   });
 
   let chars = [
-    { name: "Alex", initiative: 6, ac: null },
-    { name: "Aaron", initiative: 16, ac: null },
-    { name: "Sam", initiative: 8, ac: null },
+    { name: "Alex", initiative: 100, modifier: 0, ac: null },
+    { name: "Aaron", initiative: 100, modifier: 0, ac: null },
+    { name: "Sam", initiative: 100, modifier: 0, ac: null },
   ];
 
   let inputName = "";
   let inputRoll = 0;
   let inputAC = null;
+  let modifier = 0;
 
   let current = null;
+
+  function sort_chars() {
+    chars.sort((a, b) =>
+      a.initiative > b.initiative ? -1 : b.initiative > a.initiative ? 1 : 0,
+    );
+  }
 
   function add(input) {
     const char = {
@@ -40,6 +47,7 @@
       // But the linter does not know this is happening and thus complains about the use of this function >:(
       // @ts-ignore
       initiative: parseInt(inputRoll),
+      modifier: parseInt(modifier),
       ac: inputAC,
     };
 
@@ -53,11 +61,10 @@
     }
     // inputName = "";
     inputRoll = 0;
+    modifier = 0;
     // inputAC = null;
 
-    chars.sort((a, b) =>
-      a.initiative > b.initiative ? -1 : b.initiative > a.initiative ? 1 : 0,
-    );
+    sort_chars();
   }
 
   function remove(char) {
@@ -84,7 +91,9 @@
   }
 
   function generate_roll() {
-    inputRoll = Math.floor(Math.random() * 20);
+    inputRoll = Math.floor(Math.random() * 20) + parseInt(modifier);
+  }
+
   }
 </script>
 
@@ -99,6 +108,12 @@
     class="new-char-input new-char-roll"
     placeholder="Roll"
     bind:value={inputRoll}
+    on:keydown={(event) => event.key === "Enter" && add(event.target)}
+  />
+  <input
+    class="new-char-input new-char-mod"
+    placeholder="Modifier"
+    bind:value={modifier}
     on:keydown={(event) => event.key === "Enter" && add(event.target)}
   />
   <button on:click={generate_roll}> Generate </button>
